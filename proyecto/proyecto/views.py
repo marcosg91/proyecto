@@ -16,3 +16,6 @@ def inicio(request):
         'productos': productos
     }
     return render(request, template_name, contexto)
+
+def login(request):
+    return render(request, "login.html", {})
