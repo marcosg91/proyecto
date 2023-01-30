@@ -1,12 +1,28 @@
 from django.shortcuts import render 
-
+from productos.models import Producto
 
 def inicio(request):
-    template_name = "index.html"
+    template_name = 'index.html'
 
+    """"
+    p=Producto.objects.create(
+        nombre="pantalon",
+        precio=1500,
+        descripcion="pantalaon azul"
+    )
+    """
+
+    
+    
+    contexto = {
+        'productos': Producto.objects.all()
+    }
+    return render(request, template_name, contexto)
+
+"""
 def login(request):
-    print(request.method == "GET")
+    print("entre al login")
+    print(request.GET["password"])
 
-    print("entre a login")
-    print(request.POST.get("pass", None))
-    return render(request, "login.html", {})
+    return render(request, "login.html",{})
+"""

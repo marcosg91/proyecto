@@ -17,25 +17,20 @@
 
     <main class="form-signin w-100 m-auto">
         <form method="post">{% csrf_token %}
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag-heart" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag-heart"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+            </svg>
             <h1 class="h3 mb-3 fw-normal">Ingresar</h1>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="user">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
                 <label for="floatingInput">Nombre de usuario</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                 <label for="floatingPassword">Contraseña</label>
-            </div>
-
-            <br>
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Recordar
-                </label>
             </div>
 
             <br>
@@ -43,6 +38,7 @@
             <p><a class="w-100 btn btn-lg btn-primary" href="{% url 'inicio' %}">Volver</a></p>
             <a class="w-100 btn btn-lg btn-primary" href="">Registrarte</a>
             <p class="mt-5 mb-3 text-muted">© Marcos</p>
+
         </form>
     </main>
 

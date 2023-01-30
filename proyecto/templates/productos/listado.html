@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% block contenido %}
+<div class="row">
+    <div class="col">    
+        <button type="button" class="btn btn-outline-primary">Agregar producto</button>
+    </div>
+</div><br>
+<div class="card">
+    <div class="card-header">
+        Lista de productos
+    </div>
+    <div class="card-body">
+        <table class="table table-primary table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">precio</th>
+                    <th scope="col">descripcion</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in productos %}
+                <tr>
+                    <th scope="row">{{p.id}}</th>
+                    <td>{{p.nombre}}</td>
+                    <td>${{p.precio}}</td>
+                    <td>{{p.descripcion}}</td>
+                    <td>
+                        <button type="button" class="btn btn-info">Editar</button>
+                        <button type="button" class="btn btn-dark">Eliminar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock contenido %}
