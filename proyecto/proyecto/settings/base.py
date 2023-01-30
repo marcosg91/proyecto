@@ -19,13 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^ol^tpe-o@3wy8f+ccj_(nw44k32m$jz#uvwzl*i*^n!mc!+gj'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "usuarios.Usuario"
 LOGIN_REDIRECT_URL = "/"
@@ -77,19 +71,8 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'proyecto',
-        'USER': 'sa',
-        'PASSWORD':'123',
-        'HOST': 'DESKTOP-B6JPFO0',
-        'OPTIONS':{
-            'driver': 'ODBC Driver 17 for SQL Server'
-        }
-    }
-}
 
+from decouple import config
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
