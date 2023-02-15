@@ -1,4 +1,5 @@
 from django.shortcuts import render 
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 
 from django.urls import reverse
@@ -6,6 +7,7 @@ from django.urls import reverse
 from .forms import ProductoForm
 from .models import Producto
 
+"""
 def adm_listado_productos(request):
     template_name = 'productos/listado.html'
 
@@ -13,6 +15,15 @@ def adm_listado_productos(request):
         'productos': Producto.objects.all()
     }
     return render(request, template_name, contexto)
+"""
+
+
+class AdminListadoProductos (ListView):
+    template_name = "productos/listado.html"
+    model = Producto
+    context_object_name = "productos"
+    paginate_by = 2
+
 
 class NuevoProducto(CreateView):
     model= Producto
