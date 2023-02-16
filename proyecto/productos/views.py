@@ -1,6 +1,6 @@
 from django.shortcuts import render 
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 from django.urls import reverse
 
@@ -22,7 +22,7 @@ class AdminListadoProductos (ListView):
     template_name = "productos/listado.html"
     model = Producto
     context_object_name = "productos"
-    paginate_by = 10
+    paginate_by = 3
 
     def get_queryset(self):
         productos = Producto.objects.all()
@@ -35,6 +35,14 @@ class AdminListadoProductos (ListView):
 class NuevoProducto(CreateView):
     model= Producto
     template_name = "productos/nuevo_producto.html"
+    form_class = ProductoForm
+
+    def get_success_url(self):
+        return reverse("productos:adm_listado_productos")
+
+class EditarProducto(UpdateView):
+    model= Producto
+    template_name = "productos/editar.html"
     form_class = ProductoForm
 
     def get_success_url(self):
