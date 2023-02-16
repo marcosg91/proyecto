@@ -9,7 +9,30 @@ class Producto(models.Model):
 
     activo=models.BooleanField(default=True)
 
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True, related_name="categorias")
+
+    categoria2 = models.ManyToManyField(Categoria)
+
+
+    #ficha = models.OneToOneField(Ficha)  para los casos de 1 a 1 (a un producto le corresponde una ficha); se deberia crear el modelo Ficha
+
 
     def __str__(self):
         return self.nombre
+
+
+
+
+
+"""
+
+c = Categoria.objects.get(id=1)
+c.categorias.all()
+
+#crear tabla intermedia de forma manual: 
+class ProductoCategoria(models.Model):
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True)
+    # fecha
+"""
+
