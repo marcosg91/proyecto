@@ -1,6 +1,7 @@
 from django.db import models
 
 from categorias.models import Categoria
+from usuarios.models import Usuario
 
 class Producto(models.Model):
     nombre=models.CharField(max_length=255)
@@ -21,6 +22,9 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
+class MeGusta(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
 """
 c = Categoria.objects.get(id=1)
