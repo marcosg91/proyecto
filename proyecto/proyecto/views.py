@@ -1,6 +1,12 @@
 from django.shortcuts import render 
+
+from django.contrib.auth.decorators import login_required
+
+from utilidades.mixins import is_admin_required
+
 from productos.models import Producto
 
+@is_admin_required()
 def inicio(request):
     template_name = 'index.html'
 

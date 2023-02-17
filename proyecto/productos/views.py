@@ -8,6 +8,11 @@ from django.http import HttpResponseRedirect
 from .forms import ProductoForm
 from .models import Producto, MeGusta
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from utilidades.mixins import IsAdminMixins
+
+
 """
 def adm_listado_productos(request):
     template_name = 'productos/listado.html'
@@ -19,7 +24,7 @@ def adm_listado_productos(request):
 """
 
 
-class AdminListadoProductos (ListView):
+class AdminListadoProductos (LoginRequiredMixin, IsAdminMixins, ListView):
     template_name = "productos/listado.html"
     model = Producto
     context_object_name = "productos"
