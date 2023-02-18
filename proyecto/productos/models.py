@@ -16,6 +16,8 @@ class Producto(models.Model):
 
     #ficha = models.OneToOneField(Ficha)  para los casos de 1 a 1 (a un producto le corresponde una ficha); se deberia crear el modelo Ficha
 
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, related_name="productos", blank=True)
+
     imagen = models.ImageField(upload_to="productos", null=True, blank=True)
     #tambien existe archivo = models.FileField
 
