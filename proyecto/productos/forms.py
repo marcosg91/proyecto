@@ -9,3 +9,9 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model=Producto
         fields=["nombre", "descripcion", "precio", "activo", "categoria", "categoria2", "imagen"]
+    
+    def clean_precio(self):
+        precio = self.cleaned_data["precio"]
+        if precio <= 0:
+            raise forms.ValidationError("el precio debe ser un numero positivo")
+        return precio
